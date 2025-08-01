@@ -1,3 +1,4 @@
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
@@ -32,7 +33,7 @@ export default function Hero() {
           </div>
           <div className="flex items-center justify-center">
             <Avatar className="h-64 w-64 md:h-80 md:w-80 lg:h-96 lg:w-96 border-4 border-primary/10 shadow-lg">
-              <AvatarImage src="https://placehold.co/400x400.png" alt="Developer Avatar" data-ai-hint="developer portrait" />
+              <AvatarImage src="/me.jpeg" alt="Developer Avatar" data-ai-hint="developer portrait" />
               <AvatarFallback>SZ</AvatarFallback>
             </Avatar>
           </div>
