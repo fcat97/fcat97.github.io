@@ -1,4 +1,6 @@
 
+"use client";
+
 import {
     Card,
     CardContent,
@@ -10,6 +12,14 @@ import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { ArrowRight, Download, Star } from "lucide-react";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+  } from "@/components/ui/carousel";
+import { useAutoplayCarousel } from "@/hooks/useAutoplayCarousel";
 
 const commercialProjects = [
     {
@@ -51,6 +61,8 @@ const commercialProjects = [
 ];
 
 export default function CommercialProjects() {
+    const { carouselRef, plugin } = useAutoplayCarousel();
+
     return (
         <section id="commercial-projects" className="w-full py-12 md:py-24 lg:py-32">
             <div className="container px-4 md:px-6">
@@ -62,61 +74,80 @@ export default function CommercialProjects() {
                         </p>
                     </div>
                 </div>
-                <div className="mx-auto grid max-w-5xl gap-8 py-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                    {commercialProjects.map((project, index) => (
-                        <Card 
-                            key={index} 
-                            className="overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl flex flex-col"
-                        >
-                            <CardHeader>
-                                <CardTitle>{project.title}</CardTitle>
-                                <CardDescription>{project.description}</CardDescription>
-                            </CardHeader>
-                            <CardContent className="flex-grow flex flex-col justify-between">
-                                <div>
-                                    <div className="relative h-[400px] w-full overflow-hidden rounded-lg">
-                                        <Image
-                                            src={project.image}
-                                            alt={`Background for ${project.title}`}
-                                            layout="fill"
-                                            objectFit="cover"
-                                            className="blur-lg scale-110"
-                                        />
-                                        <Image
-                                            src={project.image}
-                                            alt={`Image of ${project.title}`}
-                                            data-ai-hint={project.hint}
-                                            layout="fill"
-                                            objectFit="contain"
-                                            className="relative z-10"
-                                        />
-                                    </div>
-                                    <div className="mt-4 flex flex-wrap gap-2">
-                                        {project.stack.map((tech) => (
-                                            <Badge key={tech} variant="secondary">{tech}</Badge>
-                                        ))}
-                                    </div>
-                                    {project.stats && (
-                                        <div className="mt-4 flex flex-wrap gap-4 text-muted-foreground">
-                                            {project.stats.map((stat, i) => (
-                                                <div key={i} className="flex items-center gap-2">
-                                                    {stat.icon}
-                                                    <span>{stat.label}</span>
+                <div className="mx-auto max-w-5xl py-12">
+                    <Carousel
+                        ref={carouselRef}
+                        plugins={[plugin.current]}
+                        opts={{
+                        align: "start",
+                        loop: true,
+                        }}
+                        className="w-full"
+                        onMouseEnter={plugin.current.stop}
+                        onMouseLeave={plugin.current.reset}
+                    >
+                        <CarouselContent>
+                            {commercialProjects.map((project, index) => (
+                                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                                    <div className="p-1 h-full">
+                                        <Card 
+                                            className="overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl flex flex-col h-full"
+                                        >
+                                            <CardHeader>
+                                                <CardTitle>{project.title}</CardTitle>
+                                                <CardDescription>{project.description}</CardDescription>
+                                            </CardHeader>
+                                            <CardContent className="flex-grow flex flex-col justify-between">
+                                                <div>
+                                                    <div className="relative h-[400px] w-full overflow-hidden rounded-lg">
+                                                        <Image
+                                                            src={project.image}
+                                                            alt={`Background for ${project.title}`}
+                                                            layout="fill"
+                                                            objectFit="cover"
+                                                            className="blur-lg scale-110"
+                                                        />
+                                                        <Image
+                                                            src={project.image}
+                                                            alt={`Image of ${project.title}`}
+                                                            data-ai-hint={project.hint}
+                                                            layout="fill"
+                                                            objectFit="contain"
+                                                            className="relative z-10"
+                                                        />
+                                                    </div>
+                                                    <div className="mt-4 flex flex-wrap gap-2">
+                                                        {project.stack.map((tech) => (
+                                                            <Badge key={tech} variant="secondary">{tech}</Badge>
+                                                        ))}
+                                                    </div>
+                                                    {project.stats && (
+                                                        <div className="mt-4 flex flex-wrap gap-4 text-muted-foreground">
+                                                            {project.stats.map((stat, i) => (
+                                                                <div key={i} className="flex items-center gap-2">
+                                                                    {stat.icon}
+                                                                    <span>{stat.label}</span>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    )}
                                                 </div>
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
-                                {project.url && (
-                                    <Button asChild className="mt-6 w-full">
-                                        <a href={project.url} target="_blank" rel="noopener noreferrer">
-                                            View on Play Store <ArrowRight className="ml-2 h-4 w-4" />
-                                        </a>
-                                    </Button>
-                                )}
-                            </CardContent>
-                        </Card>
-                    ))}
+                                                {project.url && (
+                                                    <Button asChild className="mt-6 w-full">
+                                                        <a href={project.url} target="_blank" rel="noopener noreferrer">
+                                                            View on Play Store <ArrowRight className="ml-2 h-4 w-4" />
+                                                        </a>
+                                                    </Button>
+                                                )}
+                                            </CardContent>
+                                        </Card>
+                                    </div>
+                                </CarouselItem>
+                            ))}
+                        </CarouselContent>
+                        <CarouselPrevious />
+                        <CarouselNext />
+                    </Carousel>
                 </div>
             </div>
         </section>
