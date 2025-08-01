@@ -88,7 +88,7 @@ export default function CommercialProjects() {
                     >
                         <CarouselContent>
                             {commercialProjects.map((project, index) => (
-                                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                                <CarouselItem key={index} className="md:basis-1/2">
                                     <div className="p-1 h-full">
                                         <Card 
                                             className="overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl flex flex-col h-full"
