@@ -19,8 +19,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Github, Star } from "lucide-react";
-import Autoplay from "embla-carousel-autoplay";
-import React from "react";
+import { useAutoplayCarousel } from "@/hooks/useAutoplayCarousel";
 
 const projects = [
   {
@@ -76,9 +75,7 @@ const projects = [
 ];
 
 export default function Projects() {
-  const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
-  );
+  const { carouselRef, plugin } = useAutoplayCarousel();
 
   return (
     <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-muted/40">
@@ -93,6 +90,7 @@ export default function Projects() {
         </div>
         <div className="mx-auto max-w-5xl py-12">
           <Carousel
+            ref={carouselRef}
             plugins={[plugin.current]}
             opts={{
               align: "start",
@@ -106,7 +104,7 @@ export default function Projects() {
               {projects.map((project, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 group">
                   <div className="p-1">
-                    <Card 
+                    <Card
                       className="h-full overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl animate-[float_12s_ease-in-out_infinite]"
                       style={{ animationDelay: `${index * 0.2}s` }}
                     >

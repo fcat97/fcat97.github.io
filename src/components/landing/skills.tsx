@@ -13,8 +13,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import { cn } from "@/lib/utils";
+import { useAutoplayCarousel } from "@/hooks/useAutoplayCarousel";
 
 const skills = [
   { name: "Kotlin", icon: <CodeXml className="h-10 w-10" /> },
@@ -26,9 +25,7 @@ const skills = [
 ];
 
 export default function Skills() {
-    const plugin = React.useRef(
-        Autoplay({ delay: 2000, stopOnInteraction: true })
-    );
+    const { carouselRef, plugin } = useAutoplayCarousel({ delay: 2000, stopOnInteraction: true });
 
   return (
     <section id="skills" className="w-full py-12 md:py-24 lg:py-32">
@@ -43,6 +40,7 @@ export default function Skills() {
         </div>
         <div className="mx-auto max-w-5xl py-12">
             <Carousel
+                ref={carouselRef}
                 plugins={[plugin.current]}
                 opts={{
                     align: "start",
