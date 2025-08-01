@@ -1,3 +1,4 @@
+
 "use client"
 
 import React from "react";
@@ -53,7 +54,7 @@ export default function Skills() {
                 <CarouselContent>
                     {skills.map((skill, index) => (
                         <CarouselItem key={index} className="basis-1/3 md:basis-1/5">
-                            <div className="flex flex-col items-center justify-center space-y-2 p-4">
+                            <div className="flex flex-col items-center justify-center space-y-2 p-4 text-center">
                                 <div className="flex h-24 w-24 items-center justify-center rounded-full bg-muted text-primary transition-all hover:bg-primary hover:text-primary-foreground">
                                     {skill.icon}
                                 </div>
