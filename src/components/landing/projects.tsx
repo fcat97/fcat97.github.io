@@ -9,6 +9,13 @@ import {
   CardTitle,
   CardDescription
 } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { Github } from "lucide-react";
 
 const projects = [
@@ -58,41 +65,53 @@ export default function Projects() {
             </p>
           </div>
         </div>
-        <div className="relative">
-          <div className="flex space-x-8 overflow-x-auto py-12">
-            {projects.map((project, index) => (
-              <div key={index} className="w-80 flex-shrink-0 md:w-96">
-                <Card className="h-full overflow-hidden transition-all hover:shadow-lg hover:-translate-y-1">
-                  <CardHeader>
-                    <CardTitle>{project.title}</CardTitle>
-                    <CardDescription>{project.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <Image
-                      src={project.image}
-                      alt={`Screenshot of ${project.title}`}
-                      data-ai-hint={project.hint}
-                      width={600}
-                      height={400}
-                      className="rounded-lg object-cover"
-                    />
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {project.stack.map((tech) => (
-                        <Badge key={tech} variant="secondary">{tech}</Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                  <CardFooter>
-                    <Button asChild className="w-full">
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="mr-2 h-4 w-4" /> View on GitHub
-                      </a>
-                    </Button>
-                  </CardFooter>
-                </Card>
-              </div>
-            ))}
-          </div>
+        <div className="mx-auto max-w-5xl py-12">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {projects.map((project, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 group">
+                  <div className="p-1">
+                    <Card className="h-full overflow-hidden transition-all duration-500 ease-in-out group-hover:[transform:rotateY(10deg)] group-hover:shadow-2xl">
+                      <CardHeader>
+                        <CardTitle>{project.title}</CardTitle>
+                        <CardDescription>{project.description}</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <Image
+                          src={project.image}
+                          alt={`Screenshot of ${project.title}`}
+                          data-ai-hint={project.hint}
+                          width={600}
+                          height={400}
+                          className="rounded-lg object-cover"
+                        />
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {project.stack.map((tech) => (
+                            <Badge key={tech} variant="secondary">{tech}</Badge>
+                          ))}
+                        </div>
+                      </CardContent>
+                      <CardFooter>
+                        <Button asChild className="w-full">
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                            <Github className="mr-2 h-4 w-4" /> View on GitHub
+                          </a>
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </div>
     </section>
