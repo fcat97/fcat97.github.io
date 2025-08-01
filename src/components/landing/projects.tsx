@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -59,9 +58,11 @@ const projects = [
 ];
 
 export default function Projects() {
-  const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
-  );
+  const plugin = React.useRef<any>(null);
+
+  React.useEffect(() => {
+    plugin.current = Autoplay({ delay: 2000, stopOnInteraction: true });
+  }, []);
 
   return (
     <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-muted/40">
@@ -76,14 +77,14 @@ export default function Projects() {
         </div>
         <div className="mx-auto max-w-5xl py-12">
           <Carousel
-            plugins={[plugin.current]}
+            plugins={plugin.current ? [plugin.current] : []}
             opts={{
               align: "start",
               loop: true,
             }}
             className="w-full"
-            onMouseEnter={plugin.current.stop}
-            onMouseLeave={plugin.current.reset}
+            onMouseEnter={() => plugin.current?.stop()}
+            onMouseLeave={() => plugin.current?.reset()}
           >
             <CarouselContent>
               {projects.map((project, index) => (
