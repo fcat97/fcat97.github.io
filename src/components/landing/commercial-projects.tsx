@@ -36,6 +36,18 @@ const commercialProjects = [
             { icon: <Star className="h-4 w-4" />, label: "4.9 Rating" },
         ]
     },
+    {
+        title: "ATOM Store, Myanmar",
+        description: "The new ATOM Store app connects you to the digital eco system everyday conveniences with all you need in one place. With this app, you can manage your ATOM mobile balances, recharge for top up and pay bill, buy packages or gift packs transfer balance to others or manage accounts for family members, Play Games & Win prizes, Watch Movies, Get Discounts through Loyalty STAR program and many lifestyle services beyond telco feature.",
+        image: "https://placehold.co/600x400.png",
+        hint: "mobile app store",
+        stack: ["Kotlin", "MVVM", "Android SDK", "Firebase"],
+        url: "https://play.google.com/store/apps/details?id=mm.com.atom.store&hl=en",
+        stats: [
+            { icon: <Download className="h-4 w-4" />, label: "10M+ Downloads" },
+            { icon: <Star className="h-4 w-4" />, label: "4.4 Rating" },
+        ]
+    },
 ];
 
 export default function CommercialProjects() {
@@ -50,7 +62,7 @@ export default function CommercialProjects() {
                         </p>
                     </div>
                 </div>
-                <div className="mx-auto grid max-w-5xl gap-8 py-12 sm:grid-cols-1 md:grid-cols-2">
+                <div className="mx-auto grid max-w-5xl gap-8 py-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {commercialProjects.map((project, index) => (
                         <Card 
                             key={index} 
