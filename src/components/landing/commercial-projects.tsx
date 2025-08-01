@@ -15,7 +15,7 @@ const commercialProjects = [
     {
         title: "My Robi App",
         description: "Contributed to a leading telco app with over 50 million downloads, maintaining a 4.4 rating and a 99.4% crash-free rate. Key features include account management, customizable data plans (Easyplan), family account management, and a platform for news, games, and shopping.",
-        image: "https://placehold.co/600x400.png",
+        image: "/my-robi-app.png",
         hint: "telco app",
         stack: ["Kotlin", "build.gradle.kts", "Kotlin Coroutine", "Kotlin Flow", "Jetpack Compose", "Hilt", "Room", "Retrofit", "Coil"],
         url: "https://play.google.com/store/apps/details?id=net.omobio.robisc&hl=en",
