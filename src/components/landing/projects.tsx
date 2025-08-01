@@ -141,7 +141,7 @@ export default function Projects() {
                           </a>
                         </Button>
                       </CardFooter>
-                    </card>
+                    </Card>
                   </div>
                 </CarouselItem>
               ))}
