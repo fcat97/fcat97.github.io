@@ -77,14 +77,11 @@ export default function CommercialProjects() {
                 <div className="mx-auto max-w-5xl py-12">
                     <Carousel
                         ref={carouselRef}
-                        plugins={[plugin.current]}
                         opts={{
                         align: "start",
                         loop: true,
                         }}
                         className="w-full"
-                        onMouseEnter={plugin.current.stop}
-                        onMouseLeave={plugin.current.reset}
                     >
                         <CarouselContent>
                             {commercialProjects.map((project, index) => (

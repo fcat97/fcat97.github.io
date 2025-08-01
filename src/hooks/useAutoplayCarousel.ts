@@ -2,13 +2,13 @@
 
 import React from "react";
 import Autoplay from "embla-carousel-autoplay";
-import { EmblaCarouselType } from "embla-carousel-react";
+import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";
 
+type CarouselApi = UseEmblaCarouselType[1];
 type Options = Parameters<typeof Autoplay>[0];
 
 export function useAutoplayCarousel(options: Options = { delay: 2000, stopOnInteraction: true }) {
-  const carouselRef = React.useRef<EmblaCarouselType>(null);
-  const plugin = React.useRef(Autoplay(options));
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay(options)]);
 
-  return { carouselRef, plugin };
+  return { carouselRef: emblaRef, plugin: emblaApi };
 }
