@@ -28,7 +28,7 @@ const projects = [
     description: "A secure and user-friendly wallet application for managing your finances on the go.",
     image: "https://placehold.co/600x400.png",
     hint: "mobile wallet app",
-    stack: ["Kotlin", "Jetpack Compose", "RoomDB"],
+    stack: ["Kotlin", "Jetpack Compose", "ObjectBox", "Firebase"],
     githubUrl: "https://github.com/fcat97/Cartera",
   },
   {
@@ -99,8 +99,8 @@ export default function Projects() {
               loop: true,
             }}
             className="w-full"
-            onMouseEnter={() => plugin.current.stop()}
-            onMouseLeave={() => plugin.current.reset()}
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
           >
             <CarouselContent>
               {projects.map((project, index) => (
@@ -141,7 +141,7 @@ export default function Projects() {
                           </a>
                         </Button>
                       </CardFooter>
-                    </Card>
+                    </card>
                   </div>
                 </CarouselItem>
               ))}
