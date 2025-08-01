@@ -18,7 +18,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Github } from "lucide-react";
+import { Github, Star } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 import React from "react";
 
@@ -38,6 +38,7 @@ const projects = [
     hint: "api library",
     stack: ["Kotlin", "Gradle", "Android"],
     githubUrl: "https://github.com/fcat97/QuranApi",
+    stars: 18,
   },
   {
     title: "Project Beta",
@@ -58,13 +59,9 @@ const projects = [
 ];
 
 export default function Projects() {
-  const plugin = React.useRef<any>(null);
-
-  React.useEffect(() => {
-    if (!plugin.current) {
-      plugin.current = Autoplay({ delay: 2000, stopOnInteraction: true });
-    }
-  }, []);
+  const plugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  );
 
   return (
     <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-muted/40">
@@ -79,14 +76,14 @@ export default function Projects() {
         </div>
         <div className="mx-auto max-w-5xl py-12">
           <Carousel
-            plugins={plugin.current ? [plugin.current] : []}
+            plugins={[plugin.current]}
             opts={{
               align: "start",
               loop: true,
             }}
             className="w-full"
-            onMouseEnter={() => plugin.current?.stop()}
-            onMouseLeave={() => plugin.current?.reset()}
+            onMouseEnter={() => plugin.current.stop()}
+            onMouseLeave={() => plugin.current.reset()}
           >
             <CarouselContent>
               {projects.map((project, index) => (
@@ -94,7 +91,15 @@ export default function Projects() {
                   <div className="p-1">
                     <Card className="h-full overflow-hidden transition-all duration-500 ease-in-out group-hover:[transform:rotateY(10deg)] group-hover:shadow-2xl">
                       <CardHeader>
-                        <CardTitle>{project.title}</CardTitle>
+                        <CardTitle className="flex items-center justify-between">
+                          {project.title}
+                          {project.stars && (
+                            <div className="flex items-center gap-1 text-sm font-normal text-muted-foreground">
+                              <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                              <span>{project.stars}</span>
+                            </div>
+                          )}
+                        </CardTitle>
                         <CardDescription>{project.description}</CardDescription>
                       </CardHeader>
                       <CardContent>
