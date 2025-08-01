@@ -14,7 +14,7 @@ export default function Header() {
       <div className="container flex h-16 items-center">
         <a href="#" className="mr-6 flex items-center space-x-2">
           <Code2 className="h-6 w-6 text-primary" />
-          <span className="font-bold">DevCard</span>
+          <span className="font-bold">fCat97</span>
         </a>
         <nav className="hidden flex-1 items-center space-x-4 md:flex">
           {navLinks.map((link) => (
