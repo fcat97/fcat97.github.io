@@ -1,4 +1,6 @@
+"use client"
 
+import React from "react";
 import {
   CodeXml,
   Component,
@@ -6,17 +8,27 @@ import {
   Server,
   Smartphone,
 } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const skills = [
   { name: "Kotlin", icon: <CodeXml className="h-10 w-10" /> },
   { name: "Jetpack Compose", icon: <Component className="h-10 w-10" /> },
   { name: "Android SDK", icon: <Smartphone className="h-10 w-10" /> },
+  { name: "Python", icon: <CodeXml className="h-10 w-10" /> },
   { name: "FastAPI", icon: <Server className="h-10 w-10" /> },
   { name: "MongoDB", icon: <Database className="h-10 w-10" /> },
-  { name: "Python", icon: <CodeXml className="h-10 w-10" /> },
 ];
 
 export default function Skills() {
+    const plugin = React.useRef(
+        Autoplay({ delay: 1500, stopOnInteraction: true })
+    );
+
   return (
     <section id="skills" className="w-full py-12 md:py-24 lg:py-32">
       <div className="container px-4 md:px-6">
@@ -28,15 +40,30 @@ export default function Skills() {
             </p>
           </div>
         </div>
-        <div className="mx-auto grid max-w-5xl justify-items-center gap-8 py-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-          {skills.map((skill) => (
-            <div key={skill.name} className="flex flex-col items-center justify-center space-y-2">
-              <div className="flex h-24 w-24 items-center justify-center rounded-full bg-muted text-primary transition-all hover:bg-primary hover:text-primary-foreground">
-                {skill.icon}
-              </div>
-              <span className="text-lg font-medium">{skill.name}</span>
-            </div>
-          ))}
+        <div className="mx-auto max-w-5xl py-12">
+            <Carousel 
+                plugins={[plugin.current]}
+                opts={{
+                    align: "start",
+                    loop: true,
+                }}
+                className="w-full"
+                onMouseEnter={plugin.current.stop}
+                onMouseLeave={plugin.current.reset}
+            >
+                <CarouselContent>
+                    {skills.map((skill, index) => (
+                        <CarouselItem key={index} className="basis-1/3 md:basis-1/4 lg:basis-1/5">
+                            <div className="flex flex-col items-center justify-center space-y-2">
+                                <div className="flex h-24 w-24 items-center justify-center rounded-full bg-muted text-primary transition-all hover:bg-primary hover:text-primary-foreground">
+                                    {skill.icon}
+                                </div>
+                                <span className="text-lg font-medium">{skill.name}</span>
+                            </div>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+            </Carousel>
         </div>
       </div>
     </section>
