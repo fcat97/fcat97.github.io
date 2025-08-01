@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 export default function Header() {
   const navLinks = [
     { name: "Projects", href: "#projects" },
+    { name: "Commercial Projects", href: "#commercial-projects" },
     { name: "Skills", href: "#skills" },
     { name: "Contact", href: "#contact" },
   ];

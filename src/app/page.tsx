@@ -5,6 +5,7 @@ import Header from '@/components/landing/header';
 import Hero from '@/components/landing/hero';
 import Projects from '@/components/landing/projects';
 import Skills from '@/components/landing/skills';
+import CommercialProjects from '@/components/landing/commercial-projects';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <main className="flex-1 w-full">
         <Hero />
         <Projects />
+        <CommercialProjects />
         <Skills />
         <Contact />
       </main>
