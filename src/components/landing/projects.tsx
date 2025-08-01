@@ -13,6 +13,14 @@ import { Github } from "lucide-react";
 
 const projects = [
   {
+    title: "Cartera",
+    description: "A secure and user-friendly wallet application for managing your finances on the go.",
+    image: "https://placehold.co/600x400.png",
+    hint: "mobile wallet app",
+    stack: ["Kotlin", "Jetpack Compose", "RoomDB"],
+    githubUrl: "https://github.com/fcat97/Cartera",
+  },
+  {
     title: "Project Alpha",
     description: "A comprehensive project management tool designed to streamline team collaboration and workflow.",
     image: "https://placehold.co/600x400.png",
@@ -50,7 +58,7 @@ export default function Projects() {
             </p>
           </div>
         </div>
-        <div className="mx-auto grid max-w-5xl gap-8 py-12 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-5xl gap-8 py-12 sm:grid-cols-2 lg:grid-cols-2">
           {projects.map((project, index) => (
             <Card key={index} className="overflow-hidden transition-all hover:shadow-lg hover:-translate-y-1">
               <CardHeader>
