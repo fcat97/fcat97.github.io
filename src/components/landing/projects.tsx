@@ -58,37 +58,41 @@ export default function Projects() {
             </p>
           </div>
         </div>
-        <div className="mx-auto grid max-w-5xl gap-8 py-12 sm:grid-cols-2 lg:grid-cols-2">
-          {projects.map((project, index) => (
-            <Card key={index} className="overflow-hidden transition-all hover:shadow-lg hover:-translate-y-1">
-              <CardHeader>
-                <CardTitle>{project.title}</CardTitle>
-                <CardDescription>{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Image
-                  src={project.image}
-                  alt={`Screenshot of ${project.title}`}
-                  data-ai-hint={project.hint}
-                  width={600}
-                  height={400}
-                  className="rounded-lg object-cover"
-                />
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {project.stack.map((tech) => (
-                    <Badge key={tech} variant="secondary">{tech}</Badge>
-                  ))}
-                </div>
-              </CardContent>
-              <CardFooter>
-                <Button asChild className="w-full">
-                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                    <Github className="mr-2 h-4 w-4" /> View on GitHub
-                  </a>
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
+        <div className="relative">
+          <div className="flex space-x-8 overflow-x-auto py-12">
+            {projects.map((project, index) => (
+              <div key={index} className="w-80 flex-shrink-0 md:w-96">
+                <Card className="h-full overflow-hidden transition-all hover:shadow-lg hover:-translate-y-1">
+                  <CardHeader>
+                    <CardTitle>{project.title}</CardTitle>
+                    <CardDescription>{project.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Image
+                      src={project.image}
+                      alt={`Screenshot of ${project.title}`}
+                      data-ai-hint={project.hint}
+                      width={600}
+                      height={400}
+                      className="rounded-lg object-cover"
+                    />
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {project.stack.map((tech) => (
+                        <Badge key={tech} variant="secondary">{tech}</Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                  <CardFooter>
+                    <Button asChild className="w-full">
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                        <Github className="mr-2 h-4 w-4" /> View on GitHub
+                      </a>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
