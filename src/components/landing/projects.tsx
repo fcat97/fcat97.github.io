@@ -50,6 +50,14 @@ const projects = [
     stars: 5,
   },
   {
+    title: "dotEnv",
+    description: "A Gradle plugin that adds support for .env files, overcoming the limitations of local.properties by allowing for comments, exports, and easier management of environment variables.",
+    image: "https://placehold.co/600x400.png",
+    hint: "code environment variables",
+    stack: ["Gradle", "Kotlin", "Android"],
+    githubUrl: "https://github.com/fcat97/dotEnv",
+  },
+  {
     title: "Project Beta",
     description: "An e-commerce platform with a focus on user experience and performance, built with modern web technologies.",
     image: "https://placehold.co/600x400.png",
