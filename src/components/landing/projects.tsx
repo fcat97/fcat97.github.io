@@ -56,22 +56,6 @@ const projects = [
     stack: ["Gradle", "Kotlin", "Android"],
     githubUrl: "https://github.com/fcat97/dotEnv",
   },
-  {
-    title: "Project Beta",
-    description: "An e-commerce platform with a focus on user experience and performance, built with modern web technologies.",
-    image: "https://placehold.co/600x400.png",
-    hint: "modern website",
-    stack: ["Kotlin", "FastAPI", "MongoDB"],
-    githubUrl: "https://github.com/fcat97",
-  },
-  {
-    title: "Project Gamma",
-    description: "A data visualization dashboard that presents complex datasets in an intuitive and interactive way.",
-    image: "https://placehold.co/600x400.png",
-    hint: "dashboard charts",
-    stack: ["Jetpack Compose", "FastAPI"],
-    githubUrl: "https://github.com/fcat97",
-  },
 ];
 
 export default function Projects() {
