@@ -24,12 +24,17 @@ const commercialProjects = [
             { icon: <Star className="h-4 w-4" />, label: "4.4 Rating" },
         ]
     },
-     {
-        title: "Retail POS System",
-        description: "Contributed to the development of a point-of-sale system for a major retail chain. I was responsible for in-app-purchase integration and building a real-time inventory tracking feature, which improved checkout efficiency by 15%.",
+    {
+        title: "Muslim Bangla",
+        description: "Contributed to the most popular and authentic Islamic app in Bangladesh. Revamped the entire Hafizi Quran feature, rewriting legacy Java code into modern Kotlin with an MVVM architecture. Added audio call support for the Masayel section and implemented dynamic feature loading using webviews for a seamless native-like experience.",
         image: "https://placehold.co/600x400.png",
-        hint: "retail point of sale",
-        stack: ["Java", "Android SDK", "SQLite", "Retrofit"],
+        hint: "islamic app",
+        stack: ["Kotlin", "MVVM", "Android SDK", "Webview"],
+        url: "https://play.google.com/store/apps/details?id=com.tos.namajtime&hl=en-US",
+        stats: [
+            { icon: <Download className="h-4 w-4" />, label: "1M+ Downloads" },
+            { icon: <Star className="h-4 w-4" />, label: "4.9 Rating" },
+        ]
     },
 ];
 
