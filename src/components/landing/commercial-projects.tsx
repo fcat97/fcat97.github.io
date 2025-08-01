@@ -49,7 +49,7 @@ const commercialProjects = [
     {
         title: "ATOM Store, Myanmar",
         description: "The new ATOM Store app connects you to the digital eco system everyday conveniences with all you need in one place. With this app, you can manage your ATOM mobile balances, recharge for top up and pay bill, buy packages or gift packs transfer balance to others or manage accounts for family members, Play Games & Win prizes, Watch Movies, Get Discounts through Loyalty STAR program and many lifestyle services beyond telco feature.",
-        image: "https://placehold.co/600x400.png",
+        image: "/atom-store-app.png",
         hint: "mobile app store",
         stack: ["Kotlin", "MVVM", "Android SDK", "Firebase"],
         url: "https://play.google.com/store/apps/details?id=mm.com.atom.store&hl=en",
