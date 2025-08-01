@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -59,7 +60,7 @@ const projects = [
 ];
 
 export default function Projects() {
-  const { carouselRef, plugin } = useAutoplayCarousel();
+  const { plugin } = useAutoplayCarousel();
 
   return (
     <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-muted/40 snap-start min-h-screen flex items-center">
@@ -74,7 +75,7 @@ export default function Projects() {
         </div>
         <div className="mx-auto max-w-5xl py-12">
           <Carousel
-            ref={carouselRef}
+            plugins={[plugin.current]}
             opts={{
               align: "start",
               loop: true,

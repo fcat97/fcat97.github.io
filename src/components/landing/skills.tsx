@@ -26,7 +26,7 @@ const skills = [
 ];
 
 export default function Skills() {
-    const { carouselRef, plugin } = useAutoplayCarousel({ delay: 2000, stopOnInteraction: true });
+    const { plugin } = useAutoplayCarousel({ delay: 2000, stopOnInteraction: true });
 
   return (
     <section id="skills" className="w-full py-12 md:py-24 lg:py-32 snap-start min-h-screen flex items-center">
@@ -41,7 +41,7 @@ export default function Skills() {
         </div>
         <div className="mx-auto max-w-5xl py-12">
             <Carousel
-                ref={carouselRef}
+                plugins={[plugin.current]}
                 opts={{
                     align: "start",
                     loop: true,

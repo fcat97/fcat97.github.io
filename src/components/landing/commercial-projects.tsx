@@ -61,7 +61,7 @@ const commercialProjects = [
 ];
 
 export default function CommercialProjects() {
-    const { carouselRef, plugin } = useAutoplayCarousel();
+    const { plugin } = useAutoplayCarousel();
 
     return (
         <section id="commercial-projects" className="w-full py-12 md:py-24 lg:py-32 snap-start min-h-screen flex items-center">
@@ -76,7 +76,7 @@ export default function CommercialProjects() {
                 </div>
                 <div className="mx-auto max-w-5xl py-12">
                     <Carousel
-                        ref={carouselRef}
+                        plugins={[plugin.current]}
                         opts={{
                         align: "start",
                         loop: true,
