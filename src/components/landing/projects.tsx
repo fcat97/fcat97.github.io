@@ -32,12 +32,12 @@ const projects = [
     githubUrl: "https://github.com/fcat97/Cartera",
   },
   {
-    title: "Project Alpha",
-    description: "A comprehensive project management tool designed to streamline team collaboration and workflow.",
+    title: "QuranApi",
+    description: "A Gradle library providing an easy-to-use API for accessing Quran data in Android applications.",
     image: "https://placehold.co/600x400.png",
-    hint: "abstract gradients",
-    stack: ["Kotlin", "Jetpack Compose", "MongoDB"],
-    githubUrl: "https://github.com/fcat97",
+    hint: "api library",
+    stack: ["Kotlin", "Gradle", "Android"],
+    githubUrl: "https://github.com/fcat97/QuranApi",
   },
   {
     title: "Project Beta",
@@ -61,7 +61,9 @@ export default function Projects() {
   const plugin = React.useRef<any>(null);
 
   React.useEffect(() => {
-    plugin.current = Autoplay({ delay: 2000, stopOnInteraction: true });
+    if (!plugin.current) {
+      plugin.current = Autoplay({ delay: 2000, stopOnInteraction: true });
+    }
   }, []);
 
   return (
