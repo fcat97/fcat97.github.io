@@ -17,7 +17,7 @@ const commercialProjects = [
         description: "Contributed to a leading telco app with over 50 million downloads, maintaining a 4.4 rating and a 99.4% crash-free rate. Key features include account management, customizable data plans (Easyplan), family account management, and a platform for news, games, and shopping.",
         image: "https://placehold.co/600x400.png",
         hint: "telco app",
-        stack: ["Kotlin", "Java", "Dagger", "RxJava", "MVVM"],
+        stack: ["Kotlin", "build.gradle.kts", "Kotlin Coroutine", "Kotlin Flow", "Jetpack Compose", "Hilt", "Room", "Retrofit", "Coil"],
         url: "https://play.google.com/store/apps/details?id=net.omobio.robisc&hl=en",
         stats: [
             { icon: <Download className="h-4 w-4" />, label: "50M+ Downloads" },
@@ -26,7 +26,7 @@ const commercialProjects = [
     },
      {
         title: "Retail POS System",
-        description: "Contributed to the development of a point-of-sale system for a major retail chain. I was responsible for integrating a new payment gateway and building a real-time inventory tracking feature, which improved checkout efficiency by 15%.",
+        description: "Contributed to the development of a point-of-sale system for a major retail chain. I was responsible for in-app-purchase integration and building a real-time inventory tracking feature, which improved checkout efficiency by 15%.",
         image: "https://placehold.co/600x400.png",
         hint: "retail point of sale",
         stack: ["Java", "Android SDK", "SQLite", "Retrofit"],
