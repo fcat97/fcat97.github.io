@@ -1,3 +1,4 @@
+
 import {
     Card,
     CardContent,
@@ -7,14 +8,21 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import { Button } from "../ui/button";
+import { ArrowRight, Download, Star } from "lucide-react";
 
 const commercialProjects = [
     {
-        title: "Enterprise Mobile Banking App",
-        description: "Developed key features for a leading bank's mobile application, focusing on performance, security, and user experience. My contributions included implementing a new secure transaction module and optimizing data synchronization, resulting in a 20% reduction in app load time.",
+        title: "My Robi App",
+        description: "Contributed to a leading telco app with over 50 million downloads, maintaining a 4.4 rating and a 99.4% crash-free rate. Key features include account management, customizable data plans (Easyplan), family account management, and a platform for news, games, and shopping.",
         image: "https://placehold.co/600x400.png",
-        hint: "mobile banking app",
+        hint: "telco app",
         stack: ["Kotlin", "Java", "Dagger", "RxJava", "MVVM"],
+        url: "https://play.google.com/store/apps/details?id=net.omobio.robisc&hl=en",
+        stats: [
+            { icon: <Download className="h-4 w-4" />, label: "50M+ Downloads" },
+            { icon: <Star className="h-4 w-4" />, label: "4.4 Rating" },
+        ]
     },
      {
         title: "Retail POS System",
@@ -41,26 +49,45 @@ export default function CommercialProjects() {
                     {commercialProjects.map((project, index) => (
                         <Card 
                             key={index} 
-                            className="overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl"
+                            className="overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl flex flex-col"
                         >
                             <CardHeader>
                                 <CardTitle>{project.title}</CardTitle>
                                 <CardDescription>{project.description}</CardDescription>
                             </CardHeader>
-                            <CardContent>
-                                <Image
-                                    src={project.image}
-                                    alt={`Image of ${project.title}`}
-                                    data-ai-hint={project.hint}
-                                    width={600}
-                                    height={400}
-                                    className="rounded-lg object-cover"
-                                />
-                                <div className="mt-4 flex flex-wrap gap-2">
-                                    {project.stack.map((tech) => (
-                                        <Badge key={tech} variant="secondary">{tech}</Badge>
-                                    ))}
+                            <CardContent className="flex-grow flex flex-col justify-between">
+                                <div>
+                                    <Image
+                                        src={project.image}
+                                        alt={`Image of ${project.title}`}
+                                        data-ai-hint={project.hint}
+                                        width={600}
+                                        height={400}
+                                        className="rounded-lg object-cover"
+                                    />
+                                    <div className="mt-4 flex flex-wrap gap-2">
+                                        {project.stack.map((tech) => (
+                                            <Badge key={tech} variant="secondary">{tech}</Badge>
+                                        ))}
+                                    </div>
+                                    {project.stats && (
+                                        <div className="mt-4 flex flex-wrap gap-4 text-muted-foreground">
+                                            {project.stats.map((stat, i) => (
+                                                <div key={i} className="flex items-center gap-2">
+                                                    {stat.icon}
+                                                    <span>{stat.label}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
+                                {project.url && (
+                                    <Button asChild className="mt-6 w-full">
+                                        <a href={project.url} target="_blank" rel="noopener noreferrer">
+                                            View on Play Store <ArrowRight className="ml-2 h-4 w-4" />
+                                        </a>
+                                    </Button>
+                                )}
                             </CardContent>
                         </Card>
                     ))}
