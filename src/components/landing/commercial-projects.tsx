@@ -27,7 +27,7 @@ const commercialProjects = [
     {
         title: "Muslim Bangla",
         description: "Contributed to the most popular and authentic Islamic app in Bangladesh. Revamped the entire Hafizi Quran feature, rewriting legacy Java code into modern Kotlin with an MVVM architecture. Added audio call support for the Masayel section and implemented dynamic feature loading using webviews for a seamless native-like experience.",
-        image: "https://placehold.co/600x400.png",
+        image: "https://muslimbangla.com/assets/img/top-mobile-img.png",
         hint: "islamic app",
         stack: ["Kotlin", "MVVM", "Android SDK", "Webview"],
         url: "https://play.google.com/store/apps/details?id=com.tos.namajtime&hl=en-US",
