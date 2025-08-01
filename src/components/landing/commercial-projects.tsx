@@ -62,14 +62,23 @@ export default function CommercialProjects() {
                             </CardHeader>
                             <CardContent className="flex-grow flex flex-col justify-between">
                                 <div>
-                                    <Image
-                                        src={project.image}
-                                        alt={`Image of ${project.title}`}
-                                        data-ai-hint={project.hint}
-                                        width={600}
-                                        height={400}
-                                        className="rounded-lg object-cover"
-                                    />
+                                    <div className="relative h-[400px] w-full overflow-hidden rounded-lg">
+                                        <Image
+                                            src={project.image}
+                                            alt={`Background for ${project.title}`}
+                                            layout="fill"
+                                            objectFit="cover"
+                                            className="blur-lg scale-110"
+                                        />
+                                        <Image
+                                            src={project.image}
+                                            alt={`Image of ${project.title}`}
+                                            data-ai-hint={project.hint}
+                                            layout="fill"
+                                            objectFit="contain"
+                                            className="relative z-10"
+                                        />
+                                    </div>
                                     <div className="mt-4 flex flex-wrap gap-2">
                                         {project.stack.map((tech) => (
                                             <Badge key={tech} variant="secondary">{tech}</Badge>
