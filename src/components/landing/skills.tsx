@@ -12,8 +12,10 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { cn } from "@/lib/utils";
 
 const skills = [
   { name: "Kotlin", icon: <CodeXml className="h-10 w-10" /> },
@@ -28,6 +30,27 @@ export default function Skills() {
     const plugin = React.useRef(
         Autoplay({ delay: 1500, stopOnInteraction: true })
     );
+    const [api, setApi] = React.useState<CarouselApi>()
+    const [current, setCurrent] = React.useState(0)
+
+    React.useEffect(() => {
+        if (!api) {
+            return
+        }
+
+        setCurrent(api.selectedScrollSnap())
+
+        const onSelect = () => {
+            setCurrent(api.selectedScrollSnap())
+        }
+
+        api.on("select", onSelect)
+
+        return () => {
+            api.off("select", onSelect)
+        }
+    }, [api])
+
 
   return (
     <section id="skills" className="w-full py-12 md:py-24 lg:py-32">
@@ -42,9 +65,10 @@ export default function Skills() {
         </div>
         <div className="mx-auto max-w-5xl py-12">
             <Carousel 
+                setApi={setApi}
                 plugins={[plugin.current]}
                 opts={{
-                    align: "start",
+                    align: "center",
                     loop: true,
                 }}
                 className="w-full"
@@ -53,9 +77,18 @@ export default function Skills() {
             >
                 <CarouselContent>
                     {skills.map((skill, index) => (
-                        <CarouselItem key={index} className="basis-1/3 md:basis-1/4 lg:basis-1/5">
-                            <div className="flex flex-col items-center justify-center space-y-2">
-                                <div className="flex h-24 w-24 items-center justify-center rounded-full bg-muted text-primary transition-all hover:bg-primary hover:text-primary-foreground">
+                        <CarouselItem key={index} className="basis-1/3 md:basis-1/5">
+                            <div className={cn("flex flex-col items-center justify-center space-y-2 p-4 transition-transform duration-300 ease-in-out",
+                              {
+                                'scale-125': index === current,
+                              }
+                            )}>
+                                <div className={cn(
+                                  "flex h-24 w-24 items-center justify-center rounded-full bg-muted text-primary transition-all hover:bg-primary hover:text-primary-foreground",
+                                  {
+                                    'bg-primary text-primary-foreground': index === current
+                                  }
+                                  )}>
                                     {skill.icon}
                                 </div>
                                 <span className="text-lg font-medium">{skill.name}</span>
