@@ -18,7 +18,7 @@ const projects = [
     image: "https://placehold.co/600x400.png",
     hint: "abstract gradients",
     stack: ["Kotlin", "Jetpack Compose", "MongoDB"],
-    githubUrl: "#",
+    githubUrl: "https://github.com/fcat97",
   },
   {
     title: "Project Beta",
@@ -26,7 +26,7 @@ const projects = [
     image: "https://placehold.co/600x400.png",
     hint: "modern website",
     stack: ["Kotlin", "FastAPI", "MongoDB"],
-    githubUrl: "#",
+    githubUrl: "https://github.com/fcat97",
   },
   {
     title: "Project Gamma",
@@ -34,7 +34,7 @@ const projects = [
     image: "https://placehold.co/600x400.png",
     hint: "dashboard charts",
     stack: ["Jetpack Compose", "FastAPI"],
-    githubUrl: "#",
+    githubUrl: "https://github.com/fcat97",
   },
 ];
 

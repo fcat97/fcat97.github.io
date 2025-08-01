@@ -10,7 +10,7 @@ export default function Hero() {
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                John Doe
+                Shahriar Zaman
               </h1>
               <h2 className="text-xl font-medium text-primary">
                 Android Developer
@@ -33,7 +33,7 @@ export default function Hero() {
           <div className="flex items-center justify-center">
             <Avatar className="h-64 w-64 md:h-80 md:w-80 lg:h-96 lg:w-96 border-4 border-primary/10 shadow-lg">
               <AvatarImage src="https://placehold.co/400x400.png" alt="Developer Avatar" data-ai-hint="developer portrait" />
-              <AvatarFallback>JD</AvatarFallback>
+              <AvatarFallback>SZ</AvatarFallback>
             </Avatar>
           </div>
         </div>
