@@ -17,7 +17,7 @@ const projects = [
     description: "A comprehensive project management tool designed to streamline team collaboration and workflow.",
     image: "https://placehold.co/600x400.png",
     hint: "abstract gradients",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
+    stack: ["Kotlin", "Jetpack Compose", "MongoDB"],
     githubUrl: "#",
   },
   {
@@ -25,7 +25,7 @@ const projects = [
     description: "An e-commerce platform with a focus on user experience and performance, built with modern web technologies.",
     image: "https://placehold.co/600x400.png",
     hint: "modern website",
-    stack: ["React", "Node.js", "Express", "MongoDB"],
+    stack: ["Kotlin", "FastAPI", "MongoDB"],
     githubUrl: "#",
   },
   {
@@ -33,7 +33,7 @@ const projects = [
     description: "A data visualization dashboard that presents complex datasets in an intuitive and interactive way.",
     image: "https://placehold.co/600x400.png",
     hint: "dashboard charts",
-    stack: ["Vue.js", "D3.js", "Firebase", "Vuetify"],
+    stack: ["Jetpack Compose", "FastAPI"],
     githubUrl: "#",
   },
 ];

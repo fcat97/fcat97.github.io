@@ -13,10 +13,10 @@ export default function Hero() {
                 John Doe
               </h1>
               <h2 className="text-xl font-medium text-primary">
-                Full-Stack Developer
+                Android Developer
               </h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                A passionate developer creating modern and responsive web applications. I turn complex problems into simple, beautiful, and intuitive designs.
+                A passionate developer creating modern and responsive mobile applications. I specialize in building beautiful and intuitive Android apps.
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">

@@ -2,22 +2,16 @@ import {
   CodeXml,
   Component,
   Database,
-  GitBranch,
   Server,
-  Package,
+  Smartphone,
 } from "lucide-react";
 
 const skills = [
-  { name: "JavaScript", icon: <CodeXml className="h-10 w-10" /> },
-  { name: "TypeScript", icon: <CodeXml className="h-10 w-10" /> },
-  { name: "React", icon: <Component className="h-10 w-10" /> },
-  { name: "Next.js", icon: <Component className="h-10 w-10" /> },
-  { name: "Node.js", icon: <Server className="h-10 w-10" /> },
-  { name: "Express", icon: <Server className="h-10 w-10" /> },
+  { name: "Kotlin", icon: <CodeXml className="h-10 w-10" /> },
+  { name: "Jetpack Compose", icon: <Component className="h-10 w-10" /> },
+  { name: "Android SDK", icon: <Smartphone className="h-10 w-10" /> },
+  { name: "FastAPI", icon: <Server className="h-10 w-10" /> },
   { name: "MongoDB", icon: <Database className="h-10 w-10" /> },
-  { name: "PostgreSQL", icon: <Database className="h-10 w-10" /> },
-  { name: "Docker", icon: <Package className="h-10 w-10" /> },
-  { name: "Git", icon: <GitBranch className="h-10 w-10" /> },
 ];
 
 export default function Skills() {
@@ -28,7 +22,7 @@ export default function Skills() {
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Technologies I Use</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              I'm proficient in a variety of modern web development technologies and tools.
+              I'm proficient in a variety of modern mobile and backend development technologies.
             </p>
           </div>
         </div>
