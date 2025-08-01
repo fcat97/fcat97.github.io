@@ -19,13 +19,13 @@ export default function Contact() {
               </a>
             </Button>
             <div className="flex gap-4">
-              <Button asChild variant="outline" size="icon_lg" className="w-14 h-14 sm:w-12 sm:h-12">
+              <Button asChild variant="outline" size="icon" className="w-14 h-14 sm:w-12 sm:h-12">
                 <a href="https://github.com/fcat97" target="_blank" rel="noopener noreferrer">
                   <Github className="h-6 w-6" />
                   <span className="sr-only">GitHub</span>
                 </a>
               </Button>
-              <Button asChild variant="outline" size="icon_lg" className="w-14 h-14 sm:w-12 sm:h-12">
+              <Button asChild variant="outline" size="icon" className="w-14 h-14 sm:w-12 sm:h-12">
                 <a href="https://www.linkedin.com/in/sz97/" target="_blank" rel="noopener noreferrer">
                   <Linkedin className="h-6 w-6" />
                   <span className="sr-only">LinkedIn</span>
