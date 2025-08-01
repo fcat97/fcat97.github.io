@@ -13,6 +13,7 @@ const skills = [
   { name: "Android SDK", icon: <Smartphone className="h-10 w-10" /> },
   { name: "FastAPI", icon: <Server className="h-10 w-10" /> },
   { name: "MongoDB", icon: <Database className="h-10 w-10" /> },
+  { name: "Python", icon: <CodeXml className="h-10 w-10" /> },
 ];
 
 export default function Skills() {
