@@ -1,3 +1,6 @@
+
+"use client";
+
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -17,6 +20,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Github } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
+import React from "react";
 
 const projects = [
   {
@@ -54,6 +59,10 @@ const projects = [
 ];
 
 export default function Projects() {
+  const plugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  );
+
   return (
     <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-muted/40">
       <div className="container px-4 md:px-6">
@@ -67,11 +76,14 @@ export default function Projects() {
         </div>
         <div className="mx-auto max-w-5xl py-12">
           <Carousel
+            plugins={[plugin.current]}
             opts={{
               align: "start",
               loop: true,
             }}
             className="w-full"
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
           >
             <CarouselContent>
               {projects.map((project, index) => (
