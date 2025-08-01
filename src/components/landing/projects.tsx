@@ -106,7 +106,10 @@ export default function Projects() {
               {projects.map((project, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 group">
                   <div className="p-1">
-                    <Card className="h-full overflow-hidden transition-all duration-500 ease-in-out group-hover:[transform:rotateY(10deg)] group-hover:shadow-2xl">
+                    <Card 
+                      className="h-full overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl animate-[float_4s_ease-in-out_infinite]"
+                      style={{ animationDelay: `${index * 0.2}s` }}
+                    >
                       <CardHeader>
                         <CardTitle className="flex items-center justify-between">
                           {project.title}
